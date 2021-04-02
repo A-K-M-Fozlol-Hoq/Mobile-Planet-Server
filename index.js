@@ -21,7 +21,7 @@ admin.initializeApp({
 
 // Configaration
 require('dotenv').config()
-const port = process.env.PORT || 5055;
+const port = 5055;
 const app = express();
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mfwri.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
@@ -138,7 +138,7 @@ client.connect(err => {
 });
 
 // Start the server
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
